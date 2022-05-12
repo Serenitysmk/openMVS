@@ -327,8 +327,8 @@ struct Camera {
 			return false;
 		params.resize(4);
 		ReadBinaryLittleEndian<double>(&stream, &params);
-		uint32_t nonSvpModelID;
-		ReadBinaryLittleEndian<uint32_t>(&stream);
+		int32_t nonSvpModelID;
+		nonSvpModelID = ReadBinaryLittleEndian<uint32_t>(&stream);
 		if(nonSvpModelID != -1){
 			VERBOSE("error: camera with non-single-view-point model is not supported");
 			return false;
